@@ -22,8 +22,3 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 
-
-
-#v.1 below.....
-
-#SQLALCHEMY_DATABASE_URI = "postgresql://habrpuql:PggYGrzmBoFFYntRSRSMstXjCYm6mmxi@bubble.db.elephantsql.com/habrpuql"
