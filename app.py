@@ -93,6 +93,11 @@ def delete_user(username):
             return render_template('delete.html', username=username)
     return redirect(url_for('home'))
 
+
+
+
+# ...reviwed per documentstion/delete acct-logout prob----------------
+
 @app.route('/confirm_delete/<username>', methods=['POST'])
 @login_required
 def confirm_delete(username):
@@ -101,8 +106,16 @@ def confirm_delete(username):
         if user:
             db.session.delete(user)
             db.session.commit()
-            return redirect(url_for('list_users'))
+            logout_user()  # Log out the user
+            return redirect(url_for('signup'))  # Redirect to signup page
     return redirect(url_for('home'))
+
+# ...reviwed per documentstion/delete acct-logout prob----------------
+
+
+
+
+
 
 @app.route('/random_dog', methods=['GET'])
 def random_dog():
