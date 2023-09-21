@@ -7,6 +7,8 @@ from wtforms import StringField, PasswordField, SubmitField
 from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 
+
+
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
