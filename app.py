@@ -109,11 +109,41 @@ def confirm_delete(username):
             return redirect(url_for('signup'))
     return redirect(url_for('home'))
 
+
+
+
+
+@app.route('/random_dog', methods=['GET'])
+def random_dog():
+    response = requests.get('https://api.thedogapi.com/v1/images/search')
+    if response.status_code == 200:
+        data = response.json()
+        return f"<img src='{data[0]['url']}'>"
+        #return f"<img src='{data['message']}'>"
+    else:
+        # You can render a template with an error message instead of this.
+        return "Failed to fetch random dog image!", 500
+
+
+#https://api.thedogapi.com/v1/images/search #new api link???????????????????????????????????????????
+#old api link: https://dog.ceo/api/breeds/image/random
+
+
+""" swapping out TEST for random_dog#########################################ABOVE
+
 @app.route('/random_dog', methods=['GET'])
 def random_dog():
     response = requests.get('https://dog.ceo/api/breeds/image/random')
     data = response.json()
     return f"<img src='{data['message']}'>"
+
+"""
+
+
+
+
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
